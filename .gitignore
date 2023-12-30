@@ -1,0 +1,7 @@
+#python venv files to ignore
+
+flask-venv/Include/
+flask-venv/Lib/
+flask-venv/Scripts/
+
+#installed flask
