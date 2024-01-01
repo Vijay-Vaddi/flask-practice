@@ -18,9 +18,15 @@ def info():
 #dynamic routing 
 @app.route('/Jedi/<name>')
 def pages(name):
-    return '<h1>Master Jedi {}</h1>'.format(name)
+    return '<h1>Master Jedi {}</h1>'.format(name[100])
+
+#can perform operations on the url parameters passed in. 
+
 
 #if you're running the script then run your application app.run()
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
+#setting debug = true allows to display errors in webpage
+# and provides debugging in console using debugger PIN. 
+# should not use debug = True when deploying. 
