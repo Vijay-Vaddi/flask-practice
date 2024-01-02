@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        {% for key,val in dic.items() %}
+        <li>{{key}} : {{val}}</li>
+
+        {% endfor %}
+        <!-- #best not to end ul before forloop -->
+    </ul>
+    {%if dic['jediname'] == 'Obi-Wan Kenobi' %}
+    <img src="../static/5539.jpg" alt="General Kenobi">
+    {% else%}
+    <p>Sad General Grevious </p>
+    {% endif %}
+
+</body>
+</html>
