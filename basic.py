@@ -20,6 +20,15 @@ def info():
 def pages(name):
     return '<h1>Master Jedi {}</h1>'.format(name[100])
 
+@app.route('/puppy/<name>')
+def puppy(name):
+    if name[-1]!='y':
+        name = name+'y'
+        return '<h1>Hey there {}</h1>'.format(name)
+    else:
+        name = name[:-1]+'iful'
+        return '<h1>Hey there {}</h1>'.format(name) 
+
 #can perform operations on the url parameters passed in. 
 
 
