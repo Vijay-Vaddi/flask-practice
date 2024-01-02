@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+    {% if logged_in %}
+    <p>Welcome my young padovan</p>
+    {%else%}
+    <p>Please log in</p>
+    {%endif%}
+
     <ul>
         {% for key,val in dic.items() %}
         <li>{{key}} : {{val}}</li>

@@ -4,8 +4,9 @@ app = Flask('__name__')
 
 @app.route('/')
 def index():
+    logged_in = False
     dic = {'jediname':'Obi-Wan Kenobi', 'rank':'Master General', 'profession':'peace keeper' }
-    return render_template('control_flow.html', dic = dic)
+    return render_template('control_flow.html', logged_in=logged_in, dic = dic)
 
 #{{}} is used for jinja while {% %} is used to run python control flow inside html. 
 #can be used to display list items one by one to a li elements in html etc.
