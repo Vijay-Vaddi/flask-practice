@@ -1,0 +1,9 @@
+{% extends "base.html"%}
+
+{%block content_2%}
+{% if name!='anakin' %}
+    <p>Greetings, Master Jedi {{name | capitalize}}</p>
+    {%elif name == 'anakin' %}
+    <p>Please wait outside Padovan Skywalker</p>
+    {% endif %}
+{% endblock %}
