@@ -3,7 +3,9 @@
 {%block content_2%}
 {% if name!='anakin' %}
     <p>Greetings, Master Jedi {{name | capitalize}}</p>
+    <a href="{{url_for('static', filename='kenobi.jpg')}}">Here</a>
     {%elif name == 'anakin' %}
     <p>Please wait outside Padovan Skywalker</p>
+
     {% endif %}
 {% endblock %}
