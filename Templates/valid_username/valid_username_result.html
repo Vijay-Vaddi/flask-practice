@@ -1,0 +1,27 @@
+{%extends "/valid_username/valid_username_base.html" %}
+
+{%block content%}
+
+<div class="jumbotron">
+    <ul>
+    {% if lower and upper and digit %}
+        <li>Congratulations! Username Matches all 3 criteria </li>
+    {%else%}
+        <p>Oh damm. Looks like all the requirements did not meet</p>
+        <p>Here are the requirements you failed</p>
+        {%if not lower %}
+            <li>Username needs a lower case character</li>
+        {%endif%}
+        {%if not upper %}
+            <li>Username needs a upper case character</li>
+        {%endif%}
+        {%if not digit %}
+            <li>Username needs a digit at the end</li>
+        {%endif%}
+        </ul>
+    {%endif%}
+
+
+</div>
+
+{%endblock%}

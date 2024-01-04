@@ -1,0 +1,22 @@
+{% extends "/valid_username/valid_username_base.html" %}
+
+{%block content%}
+
+<div class="jumbotron">
+    <p>Welcome to User name check</p>    
+    <p>Please enter user name with following conditions</p>
+    <ul>
+        <li>Must have an upper case letter</li>
+        <li>Must have a lower case letter</li>
+        <li>Must have a number at the END</li>
+    </ul>
+    <form action="{{url_for('valid_username_result')}}">
+        <label for="name" ></label>
+        <input type="text" name="name">
+        <input type="submit" value="Submit form">
+
+    </form>    
+    </div>
+
+
+{%endblock%}
