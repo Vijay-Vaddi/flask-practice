@@ -1,0 +1,13 @@
+<h1> Welcome to the Jedi school of awesomeness</h1>
+<form>
+    {{ form.hidden_field() }}<br>
+    {{ form.species.label }}{{ form.species }}<br>
+    {{ form.jedi.lable }} {{ form.jedi }}<br>
+    {{ form.side.label }} {{ form.side }}<br>
+    {{ form.weapon.label }} {{ form.weapon }}<br>
+    <p>Do you have any feedback youngling?</p>
+    {{ form.feedback.label }} {{ form.feedback }}
+    <br>
+    {{form.submit()}}
+    <!-- why submit() has () -->
+</form>
