@@ -1,8 +1,9 @@
 <h1> Welcome to the Jedi school of awesomeness</h1>
-<form>
-    {{ form.hidden_field() }}<br>
+<form method="POST">
+    {{form.csrf_token}}
+    {{ form.hidden_tag() }}<br>
     {{ form.species.label }}{{ form.species }}<br>
-    {{ form.jedi.lable }} {{ form.jedi }}<br>
+    {{ form.jedi.label }} {{ form.jedi }}<br>
     {{ form.side.label }} {{ form.side }}<br>
     {{ form.weapon.label }} {{ form.weapon }}<br>
     <p>Do you have any feedback youngling?</p>
