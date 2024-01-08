@@ -10,7 +10,7 @@ class SimpleForm(FlaskForm):
 
     submit = SubmitField('Click here')
 
-app.route('/', method=['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def index():
 
     form = SimpleForm()
