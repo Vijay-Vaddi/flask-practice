@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 # __file__ , when a module is loaded in python, the __file__ is build it and set to the actual name of the file, ie basic.py
@@ -10,18 +11,22 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
 # sets the data base location
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'+os.path.join(basedir,'data.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')
 
 #setting if to track all modification to the db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+class Base(DeclarativeBase):
+    pass
+
+db = SQLAlchemy(model_class=Base)
+db.init_app(app)
 
 # create a model class. Model is nothing but a table in db
 # when you pass your app to SQLALCHEmy, the db will now have Model class
 class Puppy(db.Model):
     # manual override to table name. default would be class name Puppy
-    __tablename__ = 'puppies'
+    # __tablename__ = 'puppies'
 
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.Text)
@@ -36,5 +41,7 @@ class Puppy(db.Model):
         return f"Puppy {self.name} is {self.age} years old "
 
 
-
+if __file__ == '__main__':
+    
+    app.run(debug=True)
 # testing new changes after auto save
