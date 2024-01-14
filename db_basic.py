@@ -9,10 +9,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-class Base(DeclarativeBase):
-    pass
+# class Base(DeclarativeBase):
+#     pass
 
-db = SQLAlchemy(model_class=Base)
+db = SQLAlchemy()  
 db.init_app(app)
 
 class Puppy(db.Model):
