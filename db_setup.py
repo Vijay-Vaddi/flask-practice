@@ -1,13 +1,15 @@
-from db_basic import Puppy, db, app
+from db_basic import Puppy, db
 
 
-with app.app_context():
-    db.create_all()
-    u1 = Puppy('Tom', 3)
-    
-    db.session.add(u1)
-    db.session.commit()
-    print(repr(u1))
+db.create_all()
+tom = Puppy('Tom', 3)
+frank = Puppy('Frankie', 4)
+
+db.session.add_all([tom, frank])
+db.session.commit()
+
+print(tom.id)
+print(frank.name)
 
 
 

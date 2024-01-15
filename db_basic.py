@@ -14,6 +14,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy()  
 db.init_app(app)
+app.app_context().push() 
+# needed to be called from outside
 
 class Puppy(db.Model):
     # __tablename__ = 'puppies'
