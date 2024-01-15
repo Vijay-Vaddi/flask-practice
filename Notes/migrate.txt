@@ -21,3 +21,8 @@ flask db migrate -m 'message', sets the migration file
 ***python -m flask db migrate -m 'message',
 flask db upgrade , updates the database with migration
 
+error : sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:sqllite
+typo : had typed sqllite with double LLs. fixed after.
+
+error : outside context error when app.app_context().push() was not written. 
+
