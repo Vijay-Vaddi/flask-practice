@@ -1,0 +1,23 @@
+when a new column in added in the Model class, sql needs to know that changes.
+this is called migrating.  
+can be done in flask migrate
+
+First have to set the Flask app environment variable. 
+
+***set $env:FLASK_APP='myapp.py' for powershell
+
+have to be in the same directory as file when running from cmd, or it;ll say cant find the file 
+
+after settin the flask application, we can do following
+
+
+flask db init -- which sets the migration directory
+(this happens only first)
+ 
+***python -m flask db init***
+
+after making change to database,
+flask db migrate -m 'message', sets the migration file
+***python -m flask db migrate -m 'message',
+flask db upgrade , updates the database with migration
+
