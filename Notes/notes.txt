@@ -1,3 +1,6 @@
+Migration Notes
+=======
+
 when a new column in added in the Model class, sql needs to know that changes.
 this is called migrating.  
 can be done in flask migrate
@@ -21,8 +24,18 @@ flask db migrate -m 'message', sets the migration file
 ***python -m flask db migrate -m 'message',
 flask db upgrade , updates the database with migration
 
+=============
 error : sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:sqllite
 typo : had typed sqllite with double LLs. fixed after.
 
 error : outside context error when app.app_context().push() was not written. 
+
+========
+Learn table relationships without confusion. 
+============
+
+#flask relationships 2. 
+
+set migration file. 
+no changes done so no need to upgrade. 
 

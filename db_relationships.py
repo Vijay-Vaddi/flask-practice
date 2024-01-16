@@ -32,7 +32,7 @@ class Puppy(db.Model):
     # use LIST is true by default because by default its true, which makes ssense for one to many 
     # since one puppy can have multi toys, but in one to one relation like one owner to one puppy, its false.   
     
-    def __init__(self, name, age, toys) -> None:
+    def __init__(self, name, age) -> None:
         self.name = name
         self.age = age
         # self.toys = toys #not added
@@ -45,6 +45,7 @@ class Puppy(db.Model):
         
     def report_toys(self):
         print(f"Puppy has toys {self.toys}")
+        # this will pring the actual query statement
         for toy in self.toys:
             print(toy.item_name)
 
