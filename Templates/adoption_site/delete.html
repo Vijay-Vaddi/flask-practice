@@ -1,0 +1,15 @@
+{% extends "adoption_site/base.html" %}
+
+{% block content %}
+<div class="mt-4 p-5 bg-primary text-white rounded w-50">
+     <h1>Did a pup get adopted?</h1>
+     <p>Awesome!! Please enter pup ID to remove from database:</p>
+     <form method="post">
+        {{form.hidden_tag()}}
+        {{form.id.label}}{{form.id(class="form-control")}}
+        {{form.submit}}
+
+     </form>
+</div>
+
+{% endblock %}

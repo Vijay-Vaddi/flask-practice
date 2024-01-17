@@ -50,5 +50,20 @@ base.html
 home/index.html
 views to add, list, and delete puppies
 
+create application file, 
+import flask, sqlalchemy stuff
 
+set app, configs, 
+Models(databse, migrate)
+
+create views, to send html templates back
+
+create forms in a new file 
+import forms and use them to push to html and validate on return
+
+do db tasks, create, delete, update and redirect to right url_for view
+
+Learn : why not this?
+pup = Puppy.query.get(id)
+# pup = db.session.get(Puppy, form.id.data) 
 
