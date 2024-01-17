@@ -38,4 +38,17 @@ Learn table relationships without confusion.
 
 set migration file. 
 no changes done so no need to upgrade. 
+have to give primary key of parent/kinda table to child tables. 
+this works as foreign keys. No 
+
+======
+databases in views
+
+create forms in new file
+
+base.html
+home/index.html
+views to add, list, and delete puppies
+
+
 
