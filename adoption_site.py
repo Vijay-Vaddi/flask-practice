@@ -66,16 +66,15 @@ def add_pup():
         db.session.add(new_pup)
         db.session.commit()
 
-        return render_template(url_for("list_pup"))
+        return redirect(url_for('list_pup'))
     # add puppy default view
     return render_template("adoption_site/add.html", form = form)
 
 @app.route('/list')
 def list_pup():
-    
+ 
     puppies = Puppy.query.all()
-    print('Hello')
-    return render_template("adoption_site/list_of_pups.html", puppies=puppies)
+    return render_template('adoption_site/list_of_pups.html', puppies=puppies)
 
 
 @app.route('/delete', methods= ['GET', 'POST'])
@@ -91,7 +90,7 @@ def del_pup():
         db.session.delete(pup)
         db.session.commit()
 
-        return render_template(url_for("list_pup"))
+        return redirect(url_for("list_pup"))
     
     return render_template('adoption_site/delete.html', form=form)
 
