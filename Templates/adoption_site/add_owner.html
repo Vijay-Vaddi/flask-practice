@@ -1,0 +1,18 @@
+{% extends "adoption_site/base.html"%}
+
+{%block content%}
+<div class="mt-4 p-5 bg-primary text-white rounded w-50">
+    <h1>Add an onwer to a puppy</h1>
+    <p>Add a new onwer in the form</p>
+    <form method="POST">
+        {{form.hidden_tag()}}
+        {{form.name.label}}{{form.name(class='form-control')}}
+        {{form.id.label}}{{form.id(class='form-control')}}
+        {{form.submit()}}
+
+    </form>
+
+
+</div>
+
+{%endblock%}

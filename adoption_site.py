@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from forms import AddPupForm, DelPupForm
+from forms import AddPupForm, DelPupForm, AddOwner
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Hello123'
@@ -32,15 +32,28 @@ class Puppy(db.Model):
     name = db.Column(db.Text)
     age = db.Column(db.Integer)
 
-    # toys = db.relationship('toy', backref = 'puppies', lazy = 'dynamic')
+    owner = db.relationship('Owner', backref = 'puppy', uselist = False)
 
     def __init__(self, name, age) -> None:
         self.name = name
         self.age = age
     
     def __repr__(self) -> str:
-        return f"Puppy {self.name} is {self.age} years old"
-    
+        if self.owner:
+            return f"Puppy {self.name} is {self.age} years old and {self.owner.name} is the owner"
+        else:
+            return f"{self.id} Puppy  {self.name}  is {self.age} and has no owner yet"
+        
+class Owner(db.Model):
+    __tablename__ = 'owner'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text)
+    puppy_id = db.Column(db.Integer, db.ForeignKey('puppies.id'))
+
+    def __init__(self, name, puppy_id) -> None:
+        self.name = name
+        self.puppy_id = puppy_id
+
 
 #########################################
 ###### VIEW FUNCTIONS- HAVE FORMS #######
@@ -93,6 +106,22 @@ def del_pup():
         return redirect(url_for("list_pup"))
     
     return render_template('adoption_site/delete.html', form=form)
+
+@app.route('/add_owner', methods= ['GET', 'POST'])
+def add_owner():
+
+    form = AddOwner()
+
+    if form.validate_on_submit():
+        puppy_id = form.id.data
+        name = form.name.data
+        
+        own = Owner(name, puppy_id)
+        db.session.add(own)
+        db.session.commit()
+        return redirect(url_for('list_pup'))
+    
+    return render_template('adoption_site/add_owner.html', form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)

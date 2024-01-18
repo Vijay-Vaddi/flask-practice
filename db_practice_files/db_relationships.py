@@ -32,7 +32,8 @@ class Puppy(db.Model):
     owner = db.relationship('Owner', backref = 'puppy', uselist = False)
     # use LIST is true by default because by default its true, which makes ssense for one to many 
     # since one puppy can have multi toys, but in one to one relation like one owner to one puppy, its false.   
-    
+    # The backref parameter ('puppy') allows you to access the Puppy instance from an Owner instance.
+
     def __init__(self, name, age) -> None:
         self.name = name
         self.age = age
