@@ -1,18 +1,18 @@
-import re 
+# import re 
+import os
+# name = '1Hello'
+# lower = False
+# upper = False
+# num = False
+# if re.search(r"[a-z]", name):
+#     # print('hi')
+#     lower = True
+# if re.search(r'[A-Z]', name):
+#     upper = True
+# if bool(re.search(r'[0-9]$',name)):
+#     num = True
 
-name = '1Hello'
-lower = False
-upper = False
-num = False
-if re.search(r"[a-z]", name):
-    # print('hi')
-    lower = True
-if re.search(r'[A-Z]', name):
-    upper = True
-if bool(re.search(r'[0-9]$',name)):
-    num = True
-
-print(lower,upper, num)
+# print(lower,upper, num)
 # if not re.search(r'[\d$]',name): 
 
 # x = re.search(r"[a-z]", name)
@@ -22,3 +22,9 @@ print(lower,upper, num)
 # if z.group(0):
 #     print('yes')
 # print(x.group(0), y.group(0))
+
+print("\n", __name__)
+print("\n", __file__)
+print("\n", os.path.dirname(__file__))
+
+print("\n abs", os.path.abspath(os.path.dirname(__file__)))
