@@ -28,7 +28,7 @@ class Owner(db.Model):
 
     id = db.Column(db.Integer, primary_key= True)
     name = db.Column(db.Text)
-    puppy_id = db.Column(db.Ineger, db.ForeignKey('puppies.id'))
+    puppy_id = db.Column(db.Integer, db.ForeignKey('puppies.id'))
 
     def __init__(self, name, puppy_id) -> None:
             self.name = name

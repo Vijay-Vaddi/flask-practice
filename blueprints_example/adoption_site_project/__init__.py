@@ -15,3 +15,12 @@ db = SQLAlchemy()
 db.init_app(app)
 app.app_context().push()
 Migrate(app, db)
+
+# db needs to be registered before so have to import blurprints after
+
+from adoption_site_project.puppies.views import puppies_blueprints
+from adoption_site_project.owners.views import owner_blueprint
+
+app.register_blueprint(owner_blueprint, url_prefix = '/owners')
+app.register_blueprint(puppies_blueprints, url_prefix = '/puppies')
+
