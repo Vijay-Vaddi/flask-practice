@@ -1,0 +1,22 @@
+{% extends "adoption_site/base.html" %}
+{% block content %}
+
+<!-- jumbotron no longer supported in bootstrap 5 -->
+<div class="mt-4 p-5 bg-primary text-white rounded w-50">
+<h1>Got a puppy that needs a new home?</h1>
+<p>Enter its details to our database please</p>
+<form method="POST">
+    {{form.hidden_tag()}}
+    <div class="mb-3 w-75">
+
+    {{form.name.label}} : {{form.name(class='form-control')}}<br>
+    </div>
+    <div class="mb-3 w-75">
+
+    {{form.age.label}} : {{form.age(class='form-control')}}<br>
+    </div>
+    {{form.submit.label}} : {{form.submit(class="btn btn-primary")}}
+
+</form>
+</div>
+{% endblock %}
