@@ -2,17 +2,17 @@
 from flask import render_template, redirect, url_for
 from adoption_site_project import app, db
 from adoption_site_project.models import Owner
-from adoption_site_project.owners.forms import AddForm
-from flask import Blueprint
+from adoption_site_project.owners.forms import AddOwnerForm
+from flask import Blueprint, request
 
-owner_blueprint = Blueprint('owners', __name__, 
+owner_blueprints = Blueprint('owners', __name__, 
                             template_folder='templates/owners')
 
-@owner_blueprint.route('/add', methods=['GET', 'POST'])
-def add_owner():
-
-    form = AddForm()
-
+@owner_blueprints.route('/add', methods=['GET', 'POST'])
+def add():
+    print("hellooooooo from owners add")
+    form = AddOwnerForm()
+    print(form)
     if form.validate_on_submit():
         puppy_id = form.id.data
         name = form.name.data
@@ -22,7 +22,7 @@ def add_owner():
         db.session.commit()
         return redirect(url_for('puppies.list'))
     
-    return render_template('add.html', form=form)
+    return render_template('add1.html', form=form)
 
 
 

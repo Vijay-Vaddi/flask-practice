@@ -10,7 +10,7 @@ puppies_blueprints = Blueprint('puppies', __name__,
 
 @puppies_blueprints.route('/add', methods = ['GET', 'POST'])
 def add():
-    
+    print("Hello from puppies add")
     form = AddForm()
     
     #add to database and show list of puppies 
@@ -34,7 +34,7 @@ def list():
 
 
 @puppies_blueprints.route('/delete', methods= ['GET', 'POST'])
-def del_pup():
+def delete():
     
     form = DelForm() 
     

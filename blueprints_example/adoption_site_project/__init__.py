@@ -19,8 +19,9 @@ Migrate(app, db)
 # db needs to be registered before so have to import blurprints after
 
 from adoption_site_project.puppies.views import puppies_blueprints
-from adoption_site_project.owners.views import owner_blueprint
+from adoption_site_project.owners.views import owner_blueprints
 
-app.register_blueprint(owner_blueprint, url_prefix = '/owners')
 app.register_blueprint(puppies_blueprints, url_prefix = '/puppies')
+app.register_blueprint(owner_blueprints, url_prefix = '/owners')
+
 

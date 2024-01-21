@@ -40,9 +40,9 @@ class Puppy(db.Model):
     
     def __repr__(self) -> str:
         if self.owner:
-            return f"Puppy {self.name} is {self.age} years old and {self.owner.name} is the owner"
+            return f"Hellooo Puppy {self.name} is {self.age} years old and {self.owner.name} is the owner"
         else:
-            return f"{self.id} Puppy  {self.name}  is {self.age} and has no owner yet"
+            return f"Heelooo 2 {self.id} Puppy  {self.name}  is {self.age} and has no owner yet"
         
 class Owner(db.Model):
     __tablename__ = 'owner'

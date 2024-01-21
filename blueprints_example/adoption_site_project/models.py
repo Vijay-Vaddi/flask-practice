@@ -15,11 +15,11 @@ class Puppy(db.Model):
         self.age = age
         self.name = name
     
-    def __repr__(self) -> str:
+    def __repr__(self):
         if self.owner:
-            return "ID: {self.id}, Puppy Name: {self.name}, Age:{self.age}, Owner: {self.owner.name}"
+            return f"ID: {self.id}, Puppy Name: {self.name}, Age:{self.age}, Owner: {self.owner.name}"
         else:
-            return "ID: {self.id}, Puppy Name: {self.name}, Age:{self.age}, Owner: None"
+            return f"ID: {self.id}, Puppy Name: {self.name}, Age:{self.age}, Owner: None"
 
 
 class Owner(db.Model):
