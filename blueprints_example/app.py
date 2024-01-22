@@ -7,13 +7,14 @@ from flask import render_template
 def index():
     return render_template('index.html')
 
-def print_registered_urls():
-    print("Registered URLs/views:")
-    for rule in app.url_map.iter_rules():
-        print(f"URL: {rule}, Endpoint: {rule.endpoint}")
+# function to check bluprint url mapping : for debugging
+# def print_registered_urls():
+#     print("Registered URLs/views:")
+#     for rule in app.url_map.iter_rules():
+#         print(f"URL: {rule}, Endpoint: {rule.endpoint}")
 
 if __name__ == '__main__':
-    print_registered_urls()
+    # print_registered_urls()
     app.run(debug=True)
 
     
