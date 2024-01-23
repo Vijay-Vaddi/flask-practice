@@ -4,3 +4,10 @@ next is saved automatically by flask
 if a user was trying to visit a page which requires login, and then logs in, 
 next will have saved that page. and once logged in, next can be used to redirect the user to that page. 
 
+#
+current_user.is_authenticated
+
+flask_login's login manager in init will handle the logins of users
+this loads and provides current_user.is_authenticated  
+
+@login_manager.user_loader in models loads the user 
