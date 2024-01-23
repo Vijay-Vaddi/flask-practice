@@ -9,6 +9,15 @@
     {{form.password.label}}
     {{form.password(class="form-control")}}
     {{form.submit()}}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for mess in messages %}
+                <li>{{mess}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
 
 
 </form>

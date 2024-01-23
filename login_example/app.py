@@ -33,22 +33,23 @@ def login():
 
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-
+        print(user)
         try:
-            if user:
-                if user.check_password(form.password.data): #and user is not None:
-                    login_user(user)
-                    flash("Logged in succcessfully")
+            if user.check_password(form.password.data): #and user is not None:
+                login_user(user)
+                flash("Logged in succcessfully")
 
-                    next = request.args.get('next')
+                next = request.args.get('next')
 
-                    if next is None or not next[0]=='/': #if not on this domain??
-                        next = url_for('welcome')
+                if next is None or not next[0]=='/': #if not on this domain??
+                    next = url_for('welcome')
 
-                    return redirect(next)
-        except:
-            flash('User not found. Please register')
-            return redirect(url_for('register'))
+                return redirect(next)
+        
+        except AttributeError:
+            flash('User not found. Please try again or register')
+            redirect(url_for('login'))
+        
     return render_template('/login.html', form=form)
 
 

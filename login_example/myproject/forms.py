@@ -7,7 +7,7 @@ from myproject.models import User
 class RegisterForm(FlaskForm):
 
     user_name = StringField("User name", validators=[DataRequired()] )
-    email = StringField("Email", validators=[DataRequired(), Email()])
+    email = EmailField("Email", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired(), EqualTo('confirm_password', message="Passwords do not match")])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired()])
     submit = SubmitField("Register")
@@ -22,7 +22,7 @@ class RegisterForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     
-    email = EmailField("Enter your username", validators=[DataRequired(), Email()])
+    email = EmailField("Enter your username", validators=[DataRequired()])
     password = PasswordField("Enter your password", validators=[DataRequired()])
     submit = SubmitField("Login")
 

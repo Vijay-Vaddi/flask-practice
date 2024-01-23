@@ -6,6 +6,7 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'flask_login123'
+app.config['MESSAGE_FLASHING_OPTIONS'] = {'duration': 3}
 
 login_manager = LoginManager()
 # LoginManager class effectively automate all the management of login systems
@@ -22,5 +23,5 @@ Migrate(app, db)
 
 login_manager.init_app(app)
 # configs app to have management of login users
-login_manager.login_view="login"
+login_manager.login_view = "login"
 # what view to go to when user hits login, written in views
