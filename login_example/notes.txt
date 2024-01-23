@@ -1,0 +1,6 @@
+#next
+next is saved automatically by flask 
+
+if a user was trying to visit a page which requires login, and then logs in, 
+next will have saved that page. and once logged in, next can be used to redirect the user to that page. 
+
