@@ -4,7 +4,7 @@
 
     <div class="mt-4 p-5 bg-primary text-white rounded">
       {% if current_user.is_authenticated %}
-      <p>Hi {current_user.user_name}</p>
+      <p>Hi {{current_user.user_name}}</p>
       {% else %}
       <p>Please login or register</p>
       {% endif %}

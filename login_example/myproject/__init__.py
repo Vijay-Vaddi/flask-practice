@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 import os
 
-app = Flask()
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'flask_login123'
 
 login_manager = LoginManager()
@@ -22,5 +22,5 @@ Migrate(app, db)
 
 login_manager.init_app(app)
 # configs app to have management of login users
-login_manager.login_view('login')
+login_manager.login_view="login"
 # what view to go to when user hits login, written in views

@@ -1,4 +1,4 @@
-from login_example import db, login_manager
+from myproject import db, login_manager
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import UserMixin
 #usermixin has loggin in users and authorizing 
