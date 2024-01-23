@@ -7,16 +7,16 @@ from myproject.models import User
 class RegisterForm(FlaskForm):
 
     user_name = StringField("User name", validators=[DataRequired()] )
-    email = EmailField("Email", validators=[DataRequired()])
+    email = StringField("Email", validators=[DataRequired(), Email() ])
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired() , EqualTo('password', message="Please enter matching passwords")])
     submit = SubmitField("Register")
 
-    def check_email(self, field):
+    def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
             raise ValidationError("Your email is already registered!")
 
-    def check_username(self, field):
+    def validate_username(self, field):
         if User.query.filter_by(user_name=field.data).first():
             raise ValidationError("Username is taken!")
 
