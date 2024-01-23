@@ -8,8 +8,8 @@ class RegisterForm(FlaskForm):
 
     user_name = StringField("User name", validators=[DataRequired()] )
     email = EmailField("Email", validators=[DataRequired()])
-    password = PasswordField("Password", validators=[DataRequired(), EqualTo('confirm_password', message="Passwords do not match")])
-    confirm_password = PasswordField("Confirm Password", validators=[DataRequired()])
+    password = PasswordField("Password", validators=[DataRequired()])
+    confirm_password = PasswordField("Confirm Password", validators=[DataRequired() , EqualTo('password', message="Please enter matching passwords")])
     submit = SubmitField("Register")
 
     def check_email(self, field):
