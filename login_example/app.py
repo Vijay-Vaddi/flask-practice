@@ -35,7 +35,7 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         print(user)
         try:
-            if user.check_password(form.password.data): #and user is not None:
+            if user.check_password(form.password.data) and user is not None:
                 login_user(user)
                 flash("Logged in succcessfully")
 
@@ -47,7 +47,7 @@ def login():
                 return redirect(next)
         
         except AttributeError:
-            flash('User not found. Please try again or register')
+            flash(f"User not found. Please try again or Register")
             redirect(url_for('login'))
         
     return render_template('/login.html', form=form)
