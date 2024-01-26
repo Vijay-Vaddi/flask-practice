@@ -9,8 +9,8 @@ from flask_dance.contrib.google import make_google_blueprint, google
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hello123'
 
-bluprint = make_google_blueprint(client_id='735241808617-aie1t9jr2a6vjjjvbmve0jvuqg8c4bp9.apps.googleusercontent.com',
-                                 client_secret='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', 
+bluprint = make_google_blueprint(client_id='------------.apps.googleusercontent.com',
+                                 client_secret='---------------', 
                                  offline=True, scope=[
         "https://www.googleapis.com/auth/plus.me",
         "https://www.googleapis.com/auth/userinfo.email",
@@ -31,7 +31,7 @@ def welcome():
     resp = google.get("/oauth2/v2/userinfo")
     assert resp.ok, resp.text 
     email = resp.json()['email']
-    
+
     return render_template('welcome.html', email=email)
 
 @app.route('/login/google')
