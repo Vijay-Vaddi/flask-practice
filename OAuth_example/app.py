@@ -9,9 +9,15 @@ from flask_dance.contrib.google import make_google_blueprint, google
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hello123'
 
-bluprint = make_google_blueprint(client_id='', client_secret='', 
-                                 offline=True, scope=['profile', 'email'])
+bluprint = make_google_blueprint(client_id='735241808617-aie1t9jr2a6vjjjvbmve0jvuqg8c4bp9.apps.googleusercontent.com',
+                                 client_secret='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', 
+                                 offline=True, scope=[
+        "https://www.googleapis.com/auth/plus.me",
+        "https://www.googleapis.com/auth/userinfo.email",
+    ])
+
 # scope is what we need from the google
+#client id and secret keys are typically set as environment variable at the command line. 
 
 app.register_blueprint(bluprint, url_prefix= '/login')
 
@@ -21,20 +27,23 @@ def index():
 
 @app.route('/welcome')
 def welcome():
-
-    resp = google.get("/plus/v1/people/me")
+    # returns internal server error if not logged in. 
+    resp = google.get("/oauth2/v2/userinfo")
     assert resp.ok, resp.text 
     email = resp.json()['email']
-
+    
     return render_template('welcome.html', email=email)
 
 @app.route('/login/google')
 def login():
     if google.authorized:
         return render_template(url_for('google.login'))
-    resp = google.get('/plus/v1/people/me')
+    resp = google.get('/oauth2/v2/userinfo')
     assert resp.ok, resp.text
     email = resp.json()['email']
 
     return render_template('welcome.html', email=email)
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
