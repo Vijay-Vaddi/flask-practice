@@ -15,3 +15,5 @@ api.add_resource(Hello, '/')
 if __name__ == "__main__":
     app.run(debug=True)
 
+# when building REST apis, all the methods should take in same arguments
+# get(self, name) post(self, name)
