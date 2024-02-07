@@ -1,0 +1,13 @@
+Resourse, allows you to create a resource to connect to using the RESt api
+API will be a wrapped around the app to allow the resourse to connect to. 
+
+Resourse classes have different methonds like get, post, put and delete
+
+So the api(app) wraps the app, 
+
+inheriting Resourse will allow methods and create a resource for rest api to connect to, 
+
+then assign/connect the resource to an url, 
+api.add_resouse(Helloword, '/') 
+this will add a resouse to api (which is wrapped around the app) to cinnect to a url '/' 
+
