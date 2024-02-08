@@ -11,3 +11,34 @@ then assign/connect the resource to an url,
 api.add_resouse(Helloword, '/') 
 this will add a resouse to api (which is wrapped around the app) to cinnect to a url '/' 
 
+----------
+jwt
+
+jwt object we're going to call requires a function in that formmat. 
+def authenticate(username)
+def identity( payload)
+both these will be passed in jwt call. 
+
+from  flask_jwt import JWT 
+jwt is the flask jwt version of flask_restful Api
+
+jwt() expects authenticate and identity function
+
+******************
+changed in   File "C:\Users\Vaddi\python-practice\flask-practice\flask-venv\Lib\site-packages\jwt\api_jwt.py", line 5, in <module>
+ImportError: cannot import name 'Mapping' from 'collections' (C:\Users\Vaddi\AppData\Local\Programs\Python\Python311\Lib\collections\__init__.py)
+and   File "C:\Users\Vaddi\python-practice\flask-practice\flask-venv\Lib\site-packages\jwt\api_jws.py", line 5, in <module>
+from collections import Mapping
+from collections.abc import Mapping
+
+
+in postman, go to headers, 
+key content-type, value application/json
+and in body, {"username":"password"}
+
+you get api token. 
+
+then, 
+
+headers, autherization, and in value type Bearer token
+and post. 
