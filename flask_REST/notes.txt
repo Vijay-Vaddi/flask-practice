@@ -1,3 +1,5 @@
+#$env flask_app=app.py is needed only when the name of app file is not app.py 
+
 Resourse, allows you to create a resource to connect to using the RESt api
 API will be a wrapped around the app to allow the resourse to connect to. 
 
