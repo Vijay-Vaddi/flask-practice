@@ -33,13 +33,13 @@ class Puppy(db.Model):
 
 
     def json(self):
-        return {'name': {self.name}}
+        return {'name': self.name}
 
 
 #####################################
 
 
-puppies = []
+# puppies = []
 
 class PuppyNames(Resource):
 
@@ -52,7 +52,7 @@ class PuppyNames(Resource):
 
 
     def post(self, name):
-        pup = Puppy(name)
+        pup = Puppy(name=name)
         db.session.add(pup)
         db.session.commit()
         return pup.json()
@@ -101,6 +101,7 @@ api.add_resource(AllPuppies, '/puppies')
 api.add_resource(UserLogin, '/login')
 
 if __name__ == "__main__":
+    db.create_all()
     app.run(debug=True)
 
 
